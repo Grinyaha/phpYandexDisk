@@ -1693,12 +1693,12 @@ class webdav_client
             if ( !$header_done )
             {
                 //Fixing field value - if in fieldvalue has http://
-                $lines[ $i ] = str_replace( "http:/", "http+++/", $lines[ $i ] );
+                $lines[ $i ] = str_replace( "https:/", "https+++/", $lines[ $i ] );
                 // store all found headers in array ...
                 list($fieldname, $fieldvalue) = explode( ':', $lines[ $i ] );
                 //Fixing resulting field value - if in fieldvalue has http://
-                $fieldname = str_replace( "http+++/", "http:/", $fieldname );
-                $fieldvalue = str_replace( "http+++/", "http:/", $fieldvalue );
+                $fieldname = str_replace( "https+++/", "https:/", $fieldname );
+                $fieldvalue = str_replace( "https+++/", "https:/", $fieldvalue );
                 // check if this header was allready set (apache 2.0 webdav module does this....).
                 // If so we add the the value to the end the fieldvalue, separated by comma...
                 if ( !$ret_struct[ 'header' ][ $fieldname ] )
